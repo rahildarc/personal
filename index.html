@@ -34,6 +34,11 @@
             animation: aura-pulse 7s ease-in-out infinite;
         }
 
+        /* Smooth Text Transition for Rotating Thoughts */
+        .fade-thought {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -302,22 +307,35 @@
 </pre>
                 </div>
 
-                <!-- Globe Sidebar Display (Right Column inside Stack Section) -->
-                <div class="bg-slate-950/70 border border-slate-900 rounded-2xl p-6 flex flex-col items-center justify-center text-center backdrop-blur-md relative overflow-hidden group">
+                <!-- Globe Sidebar Display with Rotating Thought Stream -->
+                <div class="bg-slate-950/70 border border-slate-900 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group">
                     <div class="absolute inset-0 bg-[#00FFCC]/5 blur-xl group-hover:bg-[#00FFCC]/10 transition-colors"></div>
                     
-                    <h3 class="text-xs font-bold uppercase tracking-wider text-[#00FFCC] mb-1 relative z-10">Global Security Reach</h3>
-                    <p class="text-slate-400 text-xs mb-4 relative z-10">Interactive Network Intelligence Globe</p>
+                    <!-- Dynamic Rotating Thought Header -->
+                    <div id="thoughtBox" class="relative z-10 w-full min-h-[58px] flex flex-col justify-center items-center px-2 fade-thought">
+                        <h3 id="thoughtCategory" class="text-[11px] font-bold uppercase tracking-widest text-[#00FFCC] mb-1">
+                            GLOBAL PERSPECTIVE
+                        </h3>
+                        <p id="thoughtContent" class="text-slate-300 text-xs font-medium leading-tight">
+                            "Securing systems with proactive engineering."
+                        </p>
+                    </div>
                     
                     <!-- Globe Container -->
-                    <div class="relative w-48 h-48 sm:w-52 sm:h-52 rounded-full border-2 border-[#00FFCC]/70 shadow-[0_0_30px_rgba(0,255,204,0.3),inset_0_0_20px_rgba(0,255,204,0.2)] bg-[#070b14] overflow-hidden flex items-center justify-center my-2 relative z-10">
+                    <div class="relative w-44 h-44 sm:w-48 sm:h-48 rounded-full border-2 border-[#00FFCC]/70 shadow-[0_0_30px_rgba(0,255,204,0.3),inset_0_0_20px_rgba(0,255,204,0.2)] bg-[#070b14] overflow-hidden flex items-center justify-center my-3 relative z-10">
                         <canvas id="globeCanvas" class="w-full h-full cursor-grab"></canvas>
                     </div>
 
-                    <span class="inline-flex items-center space-x-1.5 text-[11px] font-mono text-slate-400 mt-3 relative z-10">
-                        <span class="w-2 h-2 rounded-full bg-[#00FFCC] animate-ping"></span>
-                        <span>Global Target Scanning Active</span>
-                    </span>
+                    <!-- Available for Remote Work Status -->
+                    <div class="inline-flex items-center space-x-2 bg-emerald-950/40 border border-[#00FFCC]/40 rounded-full px-3.5 py-1.5 relative z-10 shadow-[0_0_15px_rgba(0,255,204,0.15)]">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FFCC] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00FFCC]"></span>
+                        </span>
+                        <span class="text-[11px] font-mono font-bold tracking-wide text-[#00FFCC] uppercase">
+                            Available Worldwide for Remote Work
+                        </span>
+                    </div>
                 </div>
 
             </div>
@@ -363,18 +381,46 @@
             detectRetina: true
         });
 
+        // ROTATING THOUGHT STREAM SCRIPT
+        const thoughts = [
+            { category: "GLOBAL PERSPECTIVE", text: "“Securing digital boundaries with proactive engineering.”" },
+            { category: "REMOTE COLLABORATION", text: "“Building scalable architectures across timezones.”" },
+            { category: "SECURITY FIRST", text: "“Zero trust design, resilient full-stack performance.”" },
+            { category: "CREATIVE ENGINEERING", text: "“Transforming complex security data into clear solutions.”" },
+            { category: "CONTINUOUS INNOVATION", text: "“Pushing code quality and netsec tools forward.”" }
+        ];
+
+        let thoughtIndex = 0;
+        const thoughtBox = document.getElementById('thoughtBox');
+        const thoughtCategory = document.getElementById('thoughtCategory');
+        const thoughtContent = document.getElementById('thoughtContent');
+
+        setInterval(() => {
+            thoughtBox.style.opacity = '0';
+            thoughtBox.style.transform = 'translateY(-4px)';
+
+            setTimeout(() => {
+                thoughtIndex = (thoughtIndex + 1) % thoughts.length;
+                thoughtCategory.textContent = thoughts[thoughtIndex].category;
+                thoughtContent.textContent = thoughts[thoughtIndex].text;
+
+                thoughtBox.style.opacity = '1';
+                thoughtBox.style.transform = 'translateY(0)';
+            }, 500);
+        }, 3500);
+
         // ACCURATE WORLD MAP GLOBE SCRIPT (Rendered inside Stack Section)
         const canvas = document.getElementById('globeCanvas');
         const context = canvas.getContext('2d');
-        const width = 220;
-        const height = 220;
+        const width = 200;
+        const height = 200;
 
         canvas.width = width * window.devicePixelRatio;
         canvas.height = height * window.devicePixelRatio;
         context.scale(window.devicePixelRatio, window.devicePixelRatio);
 
         const projection = d3.geoOrthographic()
-            .scale(95)
+            .scale(88)
             .translate([width / 2, height / 2])
             .clipAngle(90);
 
