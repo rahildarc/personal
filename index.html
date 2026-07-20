@@ -13,6 +13,26 @@
             opacity: 0.18;
             pointer-events: none;
         }
+
+        /* Custom keyframes for the globe rotation and pulse */
+        @keyframes globe-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes globe-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+
+        .animate-globe-spin {
+            animation: globe-spin 25s linear infinite;
+        }
+
+        .animate-globe-pulse {
+            animation: globe-pulse 6s ease-in-out infinite;
+        }
+
         /* Custom scrollbar to match the dark cyber theme */
         ::-webkit-scrollbar {
             width: 8px;
@@ -35,7 +55,6 @@
     <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
     <!-- Radial Green/Cyan Cyber-Glow Blobs -->
-    <div class="absolute top-10 left-10 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
     <div class="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-[#10b981] glow-blob"></div>
     <div class="absolute bottom-20 left-1/3 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
 
@@ -61,51 +80,76 @@
             </nav>
         </header>
 
-        <!-- 2. HERO SECTION -->
-        <section class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center flex flex-col items-center">
+        <!-- 2. HERO SECTION WITH ANIMATED GLOWING GLOBE -->
+        <section class="max-w-7xl mx-auto px-6 pt-12 pb-16 relative flex flex-col lg:flex-row items-center justify-between gap-12">
             
-            <!-- Status Badge -->
-            <div class="inline-flex items-center space-x-2 bg-slate-950/80 border border-slate-800/80 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md shadow-lg">
-                <span class="w-2 h-2 rounded-full bg-[#00FFCC] animate-pulse"></span>
-                <span class="text-xs font-semibold tracking-wider text-slate-300 uppercase">Available for contracts & security audits</span>
+            <!-- BIG ANIMATED GLOWING GLOBE (LEFT SIDE) -->
+            <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px] flex items-center justify-center shrink-0">
+                <!-- Ambient Backdrop Glow -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00FFCC]/30 via-[#10b981]/20 to-transparent blur-3xl animate-globe-pulse"></div>
+
+                <!-- Globe Outer Spinning Ring -->
+                <div class="absolute w-full h-full rounded-full border border-[#00FFCC]/30 animate-globe-spin shadow-[0_0_50px_rgba(0,255,204,0.2)]"></div>
+                <div class="absolute w-[85%] h-[85%] rounded-full border border-[#00FFCC]/40 border-dashed animate-globe-spin" style="animation-duration: 40s; animation-direction: reverse;"></div>
+
+                <!-- Globe Inner Glowing Sphere Core -->
+                <div class="relative w-[70%] h-[70%] rounded-full bg-gradient-to-br from-[#00FFCC]/20 via-[#080c14] to-[#10b981]/30 border-2 border-[#00FFCC]/80 shadow-[inset_0_0_50px_rgba(0,255,204,0.6),0_0_60px_rgba(0,255,204,0.4)] flex items-center justify-center overflow-hidden animate-globe-pulse">
+                    
+                    <!-- Globe Grid Lines Overlay -->
+                    <div class="absolute inset-0 bg-[radial-gradient(#00FFCC_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+                    <div class="absolute w-full h-full border-t border-b border-[#00FFCC]/40 rounded-full scale-y-50"></div>
+                    <div class="absolute w-full h-full border-l border-r border-[#00FFCC]/40 rounded-full scale-x-50"></div>
+
+                    <!-- Glowing Center Signal Point -->
+                    <div class="relative z-10 w-4 h-4 rounded-full bg-[#00FFCC] shadow-[0_0_20px_#00FFCC] animate-ping"></div>
+                </div>
             </div>
 
-            <!-- Dynamic Headline -->
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight max-w-4xl leading-tight">
-                Exploring the intersection of <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_15px_rgba(0,255,204,0.2)]">code</span> 
-                and 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#00FFCC]">creativity</span>
-            </h1>
+            <!-- HERO CONTENT (RIGHT SIDE) -->
+            <div class="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 bg-slate-950/80 border border-[#00FFCC]/40 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(0,255,204,0.15)]">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#00FFCC] animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wider text-slate-200 uppercase">Available for contracts & security audits</span>
+                </div>
 
-            <p class="text-slate-400 mt-6 max-w-2xl text-base md:text-lg leading-relaxed">
-                PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
-            </p>
+                <!-- Dynamic Headline -->
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+                    Exploring the intersection of <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_15px_rgba(0,255,204,0.2)]">code</span> 
+                    and 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#00FFCC]">creativity</span>
+                </h1>
 
-            <!-- Social Connectivity Badges -->
-            <div class="flex flex-wrap justify-center gap-3 mt-8">
-                <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
-                </a>
-                <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-                </a>
-                <a href="https://hackerone.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/HackerOne-000000?style=for-the-badge&logo=hackerone&logoColor=red" alt="HackerOne" />
-                </a>
-                <a href="https://www.instagram.com/rahildarc?igsh=MXFqdTR5OGl1eHk3OQ==" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
-                </a>
-            </div>
+                <p class="text-slate-400 mt-6 text-base md:text-lg leading-relaxed">
+                    PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
+                </p>
 
-            <!-- Action Trigger Buttons -->
-            <div class="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-bold px-8 py-3.5 rounded-full hover:bg-emerald-400 hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
-                    View My Projects
-                </a>
-                <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="bg-slate-950/40 border border-slate-800 text-white font-bold px-8 py-3.5 rounded-full hover:bg-slate-800/80 hover:border-[#00FFCC] transition-all duration-300 backdrop-blur-sm">
-                    Let's Connect 🤝
-                </a>
+                <!-- Social Connectivity Badges -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-8">
+                    <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
+                        <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="hover:scale-105 transition-transform">
+                        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+                    </a>
+                    <a href="https://hackerone.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
+                        <img src="https://img.shields.io/badge/HackerOne-000000?style=for-the-badge&logo=hackerone&logoColor=red" alt="HackerOne" />
+                    </a>
+                    <a href="https://www.instagram.com/rahildarc?igsh=MXFqdTR5OGl1eHk3OQ==" target="_blank" class="hover:scale-105 transition-transform">
+                        <img src="https://img.shields.io/badge/Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
+                    </a>
+                </div>
+
+                <!-- Action Trigger Buttons -->
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-bold px-8 py-3.5 rounded-full text-center hover:bg-emerald-400 hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+                        View My Projects
+                    </a>
+                    <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="bg-slate-950/40 border border-slate-800 text-white font-bold px-8 py-3.5 rounded-full text-center hover:bg-slate-800/80 hover:border-[#00FFCC] transition-all duration-300 backdrop-blur-sm">
+                        Let's Connect 🤝
+                    </a>
+                </div>
             </div>
         </section>
 
