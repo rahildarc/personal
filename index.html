@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahid Bashir | Portfolio</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- D3.js & TopoJSON for Accurate World Map Globe Rendering -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
     <style>
@@ -57,17 +55,13 @@
 </head>
 <body class="bg-[#080c14] text-slate-100 font-sans overflow-x-hidden min-h-screen relative selection:bg-[#00FFCC] selection:text-slate-900">
 
-    <!-- Interactive Particle Background Canvas -->
     <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
-    <!-- Background Radial Cyber-Glow Blobs -->
     <div class="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-[#10b981] glow-blob"></div>
     <div class="absolute bottom-20 left-1/3 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
 
-    <!-- CONTENT WRAPPER -->
     <div class="relative z-10 flex flex-col justify-between min-h-screen">
 
-        <!-- 1. NAVIGATION HEADER -->
         <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-[#080c14]/30 rounded-full mt-4 border border-slate-900/50">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-full border-2 border-[#00FFCC] p-0.5 overflow-hidden shadow-[0_0_15px_rgba(0,255,204,0.3)]">
@@ -84,13 +78,10 @@
             </nav>
         </header>
 
-        <!-- 2. HERO SECTION -->
         <section class="max-w-5xl mx-auto px-6 pt-20 pb-20 text-center flex flex-col items-center relative">
             
-            <!-- REVIVED LARGE GLOWING LIGHT AURA -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#00FFCC] via-[#10b981] to-cyan-500 hero-glow-revive animate-aura-pulse"></div>
 
-            <!-- GLOWING CONTRACTS BADGE -->
             <div class="relative group cursor-default mb-8">
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00FFCC] via-[#10b981] to-[#00FFCC] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 group-hover:duration-200 animate-pulse"></div>
                 
@@ -105,7 +96,6 @@
                 </div>
             </div>
 
-            <!-- Headline -->
             <h1 class="relative z-10 text-4xl sm:text-6xl font-black tracking-tight leading-tight max-w-4xl">
                 Exploring the intersection of <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_20px_rgba(0,255,204,0.3)]">code</span> 
@@ -117,7 +107,6 @@
                 PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
             </p>
 
-            <!-- Social Connectivity Badges -->
             <div class="relative z-10 flex flex-wrap justify-center gap-3 mt-8">
                 <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
                     <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
@@ -133,7 +122,6 @@
                 </a>
             </div>
 
-            <!-- Action Buttons -->
             <div class="relative z-10 mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-bold px-8 py-3.5 rounded-full text-center hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(0,255,204,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
                     View My Projects
@@ -144,7 +132,6 @@
             </div>
         </section>
 
-        <!-- 3. FEATURED PROJECTS GRID -->
         <section id="projects" class="max-w-6xl mx-auto px-6 py-16 w-full">
             <div class="border-b border-slate-900 pb-4 mb-10 flex justify-between items-end">
                 <div>
@@ -201,7 +188,6 @@
             </div>
         </section>
 
-        <!-- 4. TECHNICAL TOOLBOX & KALI SECURITY STACK -->
         <section id="tools" class="max-w-6xl mx-auto px-6 py-12 w-full">
             <div class="border-b border-slate-900 pb-4 mb-8">
                 <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Capabilities</h2>
@@ -210,7 +196,6 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 
-                <!-- Tree Architecture Code View -->
                 <div class="lg:col-span-2 bg-slate-950/70 border border-slate-900 rounded-2xl p-6 md:p-8 font-mono text-sm leading-relaxed backdrop-blur-md overflow-x-auto">
 <span class="text-[#00FFCC]"># executing tree mapping profile...</span>
 <pre class="text-[#00FFCC] mt-2">
@@ -250,33 +235,28 @@
 </pre>
                 </div>
 
-                <!-- REDESIGNED HIRING & GLOBAL REMOTE WORK SIDEBAR -->
-                <div class="bg-slate-950/80 border border-[#00FFCC]/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group shadow-[0_0_25px_rgba(0,255,204,0.08)]">
+                <div class="bg-slate-950/80 border border-[#00FFCC]/20 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group shadow-[0_0_25px_rgba(0,255,204,0.05)]">
                     
-                    <!-- Top Highlighted Hiring Pitch & Prominent Quote -->
                     <div id="thoughtBox" class="relative z-10 w-full flex flex-col justify-center items-center fade-thought">
-                        <span class="px-3 py-1 bg-[#00FFCC]/10 text-[#00FFCC] text-xs font-mono font-bold tracking-widest rounded-full border border-[#00FFCC]/30 uppercase mb-3">
+                        <span class="px-3 py-1 bg-[#00FFCC]/10 text-[#00FFCC] text-[11px] font-mono font-bold tracking-widest rounded-full border border-[#00FFCC]/20 uppercase mb-4">
                             AVAILABLE FOR REMOTE HIRING
                         </span>
-                        <h3 id="thoughtCategory" class="text-[#00FFCC] font-bold text-sm uppercase tracking-wider mb-2">
+                        <h3 id="thoughtCategory" class="text-[#00FFCC]/80 font-bold text-xs uppercase tracking-widest mb-2">
                             GLOBAL PERSPECTIVE
                         </h3>
-                        <!-- INCREASED QUOTE SIZE -->
-                        <p id="thoughtContent" class="text-white text-base sm:text-lg font-bold leading-snug drop-shadow-md">
-                            "Securing digital boundaries & building scalable web systems worldwide."
+                        <p id="thoughtContent" class="text-white text-base sm:text-lg font-bold leading-snug">
+                            "Transforming complex security & data requirements into clean code."
                         </p>
                     </div>
 
-                    <!-- Clean Globe Container with Country Labels -->
-                    <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-[#00FFCC]/60 shadow-[0_0_25px_rgba(0,255,204,0.25),inset_0_0_20px_rgba(0,255,204,0.15)] bg-[#050811] overflow-hidden flex items-center justify-center my-6 relative z-10">
+                    <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full border border-[#00FFCC]/40 shadow-[0_0_35px_rgba(0,255,204,0.2),inset_0_0_25px_rgba(0,255,204,0.1)] bg-[#04070e] overflow-hidden flex items-center justify-center my-5 relative z-10">
                         <canvas id="globeCanvas" class="w-full h-full cursor-grab"></canvas>
                     </div>
 
-                    <!-- Direct Hire Action Button -->
-                    <a href="mailto:acejoker967@gmail.com" class="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#00FFCC] to-emerald-400 hover:from-emerald-400 hover:to-[#00FFCC] text-slate-950 font-extrabold rounded-xl py-3 px-4 shadow-[0_0_20px_rgba(0,255,204,0.3)] transition-all transform hover:scale-[1.02] relative z-10">
-                        <span class="relative flex h-2.5 w-2.5">
+                    <a href="mailto:acejoker967@gmail.com" class="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#00FFCC] to-emerald-400 hover:from-emerald-400 hover:to-[#00FFCC] text-slate-950 font-extrabold rounded-xl py-3 px-4 shadow-[0_0_20px_rgba(0,255,204,0.25)] transition-all transform hover:scale-[1.01] relative z-10">
+                        <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-slate-950"></span>
                         </span>
                         <span class="text-xs uppercase tracking-wider">Hire Me for Remote Work</span>
                     </a>
@@ -285,7 +265,6 @@
             </div>
         </section>
 
-        <!-- 5. FOOTER -->
         <footer class="w-full py-8 border-t border-slate-900 bg-slate-950/40 backdrop-blur-md mt-16">
             <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <p class="text-xs text-slate-500">
@@ -302,10 +281,8 @@
 
     </div>
 
-    <!-- tsParticles Library Integration -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
     <script>
-        // Particle background configuration
         tsParticles.load("tsparticles", {
             fpsLimit: 120,
             particles: {
@@ -314,158 +291,4 @@
                 opacity: { value: 0.45, random: true },
                 size: { value: { min: 1, max: 3 } },
                 links: { enable: true, distance: 140, color: "#00FFCC", opacity: 0.22, width: 1 },
-                move: { enable: true, speed: 1.1, direction: "none", outModes: { default: "out" } }
-            },
-            interactivity: {
-                events: {
-                    onHover: { enable: true, mode: "grab" },
-                    onClick: { enable: true, mode: "push" }
-                },
-                modes: { grab: { distance: 160, links: { opacity: 0.6 } }, push: { quantity: 3 } }
-            },
-            detectRetina: true
-        });
-
-        // ROTATING THOUGHT STREAM SCRIPT (HIRING & COLLABORATION ORIENTED)
-        const thoughts = [
-            { category: "GLOBAL PERSPECTIVE", text: '"Securing digital boundaries & building scalable web systems worldwide."' },
-            { category: "REMOTE COLLABORATION", text: '"Seamless async communication & agile full-stack development."' },
-            { category: "SECURITY FIRST", text: '"Zero-trust architecture with resilient, high-speed performance."' },
-            { category: "CREATIVE ENGINEERING", text: '"Transforming complex security & data requirements into clean code."' }
-        ];
-
-        let thoughtIndex = 0;
-        const thoughtBox = document.getElementById('thoughtBox');
-        const thoughtCategory = document.getElementById('thoughtCategory');
-        const thoughtContent = document.getElementById('thoughtContent');
-
-        setInterval(() => {
-            thoughtBox.style.opacity = '0';
-            thoughtBox.style.transform = 'translateY(-4px)';
-
-            setTimeout(() => {
-                thoughtIndex = (thoughtIndex + 1) % thoughts.length;
-                thoughtCategory.textContent = thoughts[thoughtIndex].category;
-                thoughtContent.textContent = thoughts[thoughtIndex].text;
-
-                thoughtBox.style.opacity = '1';
-                thoughtBox.style.transform = 'translateY(0)';
-            }, 500);
-        }, 3500);
-
-        // ADVANCED GLOBE WITH REAL-TIME COUNTRY NAMES & ISO CODES
-        const canvas = document.getElementById('globeCanvas');
-        const context = canvas.getContext('2d');
-        const width = 224;
-        const height = 224;
-
-        canvas.width = width * window.devicePixelRatio;
-        canvas.height = height * window.devicePixelRatio;
-        context.scale(window.devicePixelRatio, window.devicePixelRatio);
-
-        const projection = d3.geoOrthographic()
-            .scale(95)
-            .translate([width / 2, height / 2])
-            .clipAngle(90);
-
-        const path = d3.geoPath(projection, context);
-        const graticule = d3.geoGraticule10();
-
-        let landFeatures = null;
-        let countriesWithNames = [];
-        let rotation = [0, -20];
-
-        // ISO Numeric to Name & Code Dictionary
-        const countryMeta = {
-            "840": { name: "USA", code: "US" },
-            "124": { name: "Canada", code: "CA" },
-            "826": { name: "UK", code: "GB" },
-            "276": { name: "Germany", code: "DE" },
-            "250": { name: "France", code: "FR" },
-            "356": { name: "India", code: "IN" },
-            "036": { name: "Australia", code: "AU" },
-            "392": { name: "Japan", code: "JP" },
-            "156": { name: "China", code: "CN" },
-            "076": { name: "Brazil", code: "BR" },
-            "710": { name: "South Africa", code: "ZA" },
-            "702": { name: "Singapore", code: "SG" },
-            "784": { name: "UAE", code: "AE" },
-            "643": { name: "Russia", code: "RU" },
-            "528": { name: "Netherlands", code: "NL" },
-            "752": { name: "Sweden", code: "SE" },
-            "040": { name: "Austria", code: "AT" }
-        };
-
-        // Fetch official TopoJSON world map data
-        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-            .then(response => response.json())
-            .then(world => {
-                landFeatures = topojson.feature(world, world.objects.countries);
-                countriesWithNames = landFeatures.features;
-                render();
-            });
-
-        function render() {
-            context.clearRect(0, 0, width, height);
-
-            // 1. Draw Globe Graticule Lines
-            context.beginPath();
-            path(graticule);
-            context.lineWidth = 0.5;
-            context.strokeStyle = 'rgba(0, 255, 204, 0.12)';
-            context.stroke();
-
-            // 2. Draw Country Landmasses
-            if (landFeatures) {
-                context.beginPath();
-                path(landFeatures);
-                context.fillStyle = 'rgba(0, 255, 204, 0.2)';
-                context.fill();
-                context.lineWidth = 0.8;
-                context.strokeStyle = '#00FFCC';
-                context.shadowColor = '#00FFCC';
-                context.shadowBlur = 4;
-                context.stroke();
-                context.shadowBlur = 0; // reset shadow
-
-                // 3. Render Country Names and ISO Codes over Visible Centroids
-                context.font = 'bold 8px monospace';
-                context.textAlign = 'center';
-
-                countriesWithNames.forEach(feature => {
-                    const id = String(feature.id).padStart(3, '0');
-                    const meta = countryMeta[id];
-
-                    if (meta) {
-                        const centroid = d3.geoCentroid(feature);
-                        const projected = projection(centroid);
-
-                        // Verify if country point is on the visible front hemisphere
-                        if (projected && !isNaN(projected[0])) {
-                            const distance = d3.geoDistance(centroid, [-rotation[0], -rotation[1]]);
-                            if (distance < 1.4) {
-                                // Draw country point marker
-                                context.fillStyle = '#ffffff';
-                                context.beginPath();
-                                context.arc(projected[0], projected[1], 1.5, 0, 2 * Math.PI);
-                                context.fill();
-
-                                // Draw Name & Code Label
-                                context.fillStyle = '#00FFCC';
-                                context.fillText(`${meta.name} [${meta.code}]`, projected[0], projected[1] - 4);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        // Rotation Loop
-        d3.timer(() => {
-            rotation[0] += 0.4;
-            projection.rotate(rotation);
-            render();
-        });
-    </script>
-</body>
-</html>
+                move: { enable: true, speed: 1.
