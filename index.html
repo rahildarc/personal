@@ -117,7 +117,7 @@
                 PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
             </p>
 
-            <!-- Social Connectivity Badges (Ordered: Portfolio -> LinkedIn -> GitHub -> HackerOne) -->
+            <!-- Social Connectivity Badges -->
             <div class="relative z-10 flex flex-wrap justify-center gap-3 mt-8">
                 <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
                     <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
@@ -250,34 +250,35 @@
 </pre>
                 </div>
 
-                <!-- Smaller Globe Sidebar Display with Rotating Thought Stream -->
-                <div class="bg-slate-950/70 border border-slate-900 rounded-2xl p-4 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-[#00FFCC]/5 blur-xl group-hover:bg-[#00FFCC]/10 transition-colors"></div>
+                <!-- REDESIGNED HIRING & GLOBAL REMOTE WORK SIDEBAR -->
+                <div class="bg-slate-950/80 border border-[#00FFCC]/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group shadow-[0_0_25px_rgba(0,255,204,0.08)]">
                     
-                    <!-- Dynamic Rotating Thought Header -->
-                    <div id="thoughtBox" class="relative z-10 w-full min-h-[48px] flex flex-col justify-center items-center px-2 fade-thought">
-                        <h3 id="thoughtCategory" class="text-[10px] font-bold uppercase tracking-widest text-[#00FFCC] mb-0.5">
+                    <!-- Top Highlighted Hiring Pitch & Prominent Quote -->
+                    <div id="thoughtBox" class="relative z-10 w-full flex flex-col justify-center items-center fade-thought">
+                        <span class="px-3 py-1 bg-[#00FFCC]/10 text-[#00FFCC] text-xs font-mono font-bold tracking-widest rounded-full border border-[#00FFCC]/30 uppercase mb-3">
+                            AVAILABLE FOR REMOTE HIRING
+                        </span>
+                        <h3 id="thoughtCategory" class="text-[#00FFCC] font-bold text-sm uppercase tracking-wider mb-2">
                             GLOBAL PERSPECTIVE
                         </h3>
-                        <p id="thoughtContent" class="text-slate-300 text-xs font-medium leading-tight">
-                            Securing systems with proactive engineering.
+                        <!-- INCREASED QUOTE SIZE -->
+                        <p id="thoughtContent" class="text-white text-base sm:text-lg font-bold leading-snug drop-shadow-md">
+                            "Securing digital boundaries & building scalable web systems worldwide."
                         </p>
                     </div>
-                    
-                    <!-- Compact Globe Container -->
-                    <div class="relative w-32 h-32 rounded-full border-2 border-[#00FFCC]/70 shadow-[0_0_20px_rgba(0,255,204,0.3),inset_0_0_15px_rgba(0,255,204,0.2)] bg-[#070b14] overflow-hidden flex items-center justify-center my-2 relative z-10">
+
+                    <!-- Clean Globe Container with Country Labels -->
+                    <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-[#00FFCC]/60 shadow-[0_0_25px_rgba(0,255,204,0.25),inset_0_0_20px_rgba(0,255,204,0.15)] bg-[#050811] overflow-hidden flex items-center justify-center my-6 relative z-10">
                         <canvas id="globeCanvas" class="w-full h-full cursor-grab"></canvas>
                     </div>
 
-                    <!-- Remote Work Status Badge Linked to Email -->
-                    <a href="mailto:acejoker967@gmail.com" class="inline-flex items-center space-x-2 bg-emerald-950/40 border border-[#00FFCC]/40 hover:border-[#00FFCC] transition-all rounded-full px-3 py-1 relative z-10 shadow-[0_0_15px_rgba(0,255,204,0.15)] group/link">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FFCC] opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00FFCC]"></span>
+                    <!-- Direct Hire Action Button -->
+                    <a href="mailto:acejoker967@gmail.com" class="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#00FFCC] to-emerald-400 hover:from-emerald-400 hover:to-[#00FFCC] text-slate-950 font-extrabold rounded-xl py-3 px-4 shadow-[0_0_20px_rgba(0,255,204,0.3)] transition-all transform hover:scale-[1.02] relative z-10">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
                         </span>
-                        <span class="text-[10px] font-mono font-bold tracking-wide text-[#00FFCC] group-hover/link:text-white transition-colors uppercase">
-                            Available Worldwide for Remote Work
-                        </span>
+                        <span class="text-xs uppercase tracking-wider">Hire Me for Remote Work</span>
                     </a>
                 </div>
 
@@ -325,13 +326,12 @@
             detectRetina: true
         });
 
-        // ROTATING THOUGHT STREAM SCRIPT
+        // ROTATING THOUGHT STREAM SCRIPT (HIRING & COLLABORATION ORIENTED)
         const thoughts = [
-            { category: "GLOBAL PERSPECTIVE", text: "Securing digital boundaries with proactive engineering." },
-            { category: "REMOTE COLLABORATION", text: "Building scalable architectures across timezones." },
-            { category: "SECURITY FIRST", text: "Zero trust design, resilient full-stack performance." },
-            { category: "CREATIVE ENGINEERING", text: "Transforming complex security data into clear solutions." },
-            { category: "CONTINUOUS INNOVATION", text: "Pushing code quality and netsec tools forward." }
+            { category: "GLOBAL PERSPECTIVE", text: '"Securing digital boundaries & building scalable web systems worldwide."' },
+            { category: "REMOTE COLLABORATION", text: '"Seamless async communication & agile full-stack development."' },
+            { category: "SECURITY FIRST", text: '"Zero-trust architecture with resilient, high-speed performance."' },
+            { category: "CREATIVE ENGINEERING", text: '"Transforming complex security & data requirements into clean code."' }
         ];
 
         let thoughtIndex = 0;
@@ -353,18 +353,18 @@
             }, 500);
         }, 3500);
 
-        // COMPACT ACCURATE WORLD MAP GLOBE SCRIPT
+        // ADVANCED GLOBE WITH REAL-TIME COUNTRY NAMES & ISO CODES
         const canvas = document.getElementById('globeCanvas');
         const context = canvas.getContext('2d');
-        const width = 128;
-        const height = 128;
+        const width = 224;
+        const height = 224;
 
         canvas.width = width * window.devicePixelRatio;
         canvas.height = height * window.devicePixelRatio;
         context.scale(window.devicePixelRatio, window.devicePixelRatio);
 
         const projection = d3.geoOrthographic()
-            .scale(56)
+            .scale(95)
             .translate([width / 2, height / 2])
             .clipAngle(90);
 
@@ -372,43 +372,97 @@
         const graticule = d3.geoGraticule10();
 
         let landFeatures = null;
+        let countriesWithNames = [];
         let rotation = [0, -20];
 
-        // Fetch official TopoJSON world map data for real country boundaries
+        // ISO Numeric to Name & Code Dictionary
+        const countryMeta = {
+            "840": { name: "USA", code: "US" },
+            "124": { name: "Canada", code: "CA" },
+            "826": { name: "UK", code: "GB" },
+            "276": { name: "Germany", code: "DE" },
+            "250": { name: "France", code: "FR" },
+            "356": { name: "India", code: "IN" },
+            "036": { name: "Australia", code: "AU" },
+            "392": { name: "Japan", code: "JP" },
+            "156": { name: "China", code: "CN" },
+            "076": { name: "Brazil", code: "BR" },
+            "710": { name: "South Africa", code: "ZA" },
+            "702": { name: "Singapore", code: "SG" },
+            "784": { name: "UAE", code: "AE" },
+            "643": { name: "Russia", code: "RU" },
+            "528": { name: "Netherlands", code: "NL" },
+            "752": { name: "Sweden", code: "SE" },
+            "040": { name: "Austria", code: "AT" }
+        };
+
+        // Fetch official TopoJSON world map data
         fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
             .then(response => response.json())
             .then(world => {
                 landFeatures = topojson.feature(world, world.objects.countries);
+                countriesWithNames = landFeatures.features;
                 render();
             });
 
         function render() {
             context.clearRect(0, 0, width, height);
 
-            // Draw Graticule
+            // 1. Draw Globe Graticule Lines
             context.beginPath();
             path(graticule);
             context.lineWidth = 0.5;
-            context.strokeStyle = 'rgba(0, 255, 204, 0.15)';
+            context.strokeStyle = 'rgba(0, 255, 204, 0.12)';
             context.stroke();
 
-            // Draw Accurate World Countries Landmasses
+            // 2. Draw Country Landmasses
             if (landFeatures) {
                 context.beginPath();
                 path(landFeatures);
-                context.fillStyle = 'rgba(0, 255, 204, 0.25)';
+                context.fillStyle = 'rgba(0, 255, 204, 0.2)';
                 context.fill();
-                context.lineWidth = 1;
+                context.lineWidth = 0.8;
                 context.strokeStyle = '#00FFCC';
                 context.shadowColor = '#00FFCC';
-                context.shadowBlur = 6;
+                context.shadowBlur = 4;
                 context.stroke();
+                context.shadowBlur = 0; // reset shadow
+
+                // 3. Render Country Names and ISO Codes over Visible Centroids
+                context.font = 'bold 8px monospace';
+                context.textAlign = 'center';
+
+                countriesWithNames.forEach(feature => {
+                    const id = String(feature.id).padStart(3, '0');
+                    const meta = countryMeta[id];
+
+                    if (meta) {
+                        const centroid = d3.geoCentroid(feature);
+                        const projected = projection(centroid);
+
+                        // Verify if country point is on the visible front hemisphere
+                        if (projected && !isNaN(projected[0])) {
+                            const distance = d3.geoDistance(centroid, [-rotation[0], -rotation[1]]);
+                            if (distance < 1.4) {
+                                // Draw country point marker
+                                context.fillStyle = '#ffffff';
+                                context.beginPath();
+                                context.arc(projected[0], projected[1], 1.5, 0, 2 * Math.PI);
+                                context.fill();
+
+                                // Draw Name & Code Label
+                                context.fillStyle = '#00FFCC';
+                                context.fillText(`${meta.name} [${meta.code}]`, projected[0], projected[1] - 4);
+                            }
+                        }
+                    }
+                });
             }
         }
 
-        // Smooth rotation animation loop
+        // Rotation Loop
         d3.timer(() => {
-            rotation[0] += 0.45;
+            rotation[0] += 0.4;
             projection.rotate(rotation);
             render();
         });
