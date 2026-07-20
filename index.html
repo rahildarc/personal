@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shahid Bashir | Portfolio</title>
+    <!-- Tailwind CSS for modern styling and grid system -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for the glowing neon spots */
@@ -30,16 +31,21 @@
 </head>
 <body class="bg-[#080c14] text-slate-100 font-sans overflow-x-hidden min-h-screen relative selection:bg-[#00FFCC] selection:text-slate-900">
 
+    <!-- Interactive Particle Background Canvas -->
     <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
+    <!-- Radial Green/Cyan Cyber-Glow Blobs -->
     <div class="absolute top-10 left-10 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
     <div class="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-[#10b981] glow-blob"></div>
     <div class="absolute bottom-20 left-1/3 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
 
+    <!-- CONTENT WRAPPER -->
     <div class="relative z-10 flex flex-col justify-between min-h-screen">
 
+        <!-- 1. NAVIGATION HEADER -->
         <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-[#080c14]/30 rounded-full mt-4 border border-slate-900/50">
             <div class="flex items-center space-x-3">
+                <!-- Glowing Avatar with your live GitHub photo -->
                 <div class="w-10 h-10 rounded-full border-2 border-[#00FFCC] p-0.5 overflow-hidden shadow-[0_0_15px_rgba(0,255,204,0.3)]">
                     <img src="https://github.com/rahildarc.png" alt="Shahid Bashir" class="object-cover w-full h-full rounded-full">
                 </div>
@@ -55,13 +61,16 @@
             </nav>
         </header>
 
-        <section class="max-w-6xl mx-auto px-6 pt-16 pb-24 text-center flex flex-col items-center">
+        <!-- 2. HERO SECTION -->
+        <section class="max-w-6xl mx-auto px-6 pt-16 pb-16 text-center flex flex-col items-center">
             
+            <!-- Status Badge -->
             <div class="inline-flex items-center space-x-2 bg-slate-950/80 border border-slate-800/80 rounded-full px-4 py-1.5 mb-6 backdrop-blur-md shadow-lg">
                 <span class="w-2 h-2 rounded-full bg-[#00FFCC] animate-pulse"></span>
-                <span class="text-xs font-semibold tracking-wider text-slate-300 uppercase">Available for Projects</span>
+                <span class="text-xs font-semibold tracking-wider text-slate-300 uppercase">Available for contracts & security audits</span>
             </div>
 
+            <!-- Dynamic Headline -->
             <h1 class="text-4xl md:text-6xl font-black tracking-tight max-w-4xl leading-tight">
                 Exploring the intersection of <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_15px_rgba(0,255,204,0.2)]">code</span> 
@@ -70,9 +79,10 @@
             </h1>
 
             <p class="text-slate-400 mt-6 max-w-2xl text-base md:text-lg leading-relaxed">
-                Full-Stack Developer & Security Specialist crafting high-performance PERN ecosystems and hardening internet-of-things firmware.
+                PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
             </p>
 
+            <!-- Social Connectivity Badges -->
             <div class="flex flex-wrap justify-center gap-3 mt-8">
                 <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
                     <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
@@ -88,6 +98,7 @@
                 </a>
             </div>
 
+            <!-- Action Trigger Buttons -->
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
                 <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-bold px-8 py-3.5 rounded-full hover:bg-emerald-400 hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
                     View My Projects
@@ -98,7 +109,69 @@
             </div>
         </section>
 
-        <section id="projects" class="max-w-6xl mx-auto px-6 py-20 w-full">
+        <!-- 3. ABOUT ME SECTION -->
+        <section id="about" class="max-w-6xl mx-auto px-6 py-16 w-full">
+            <div class="border-b border-slate-900 pb-4 mb-10">
+                <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Background</h2>
+                <p class="text-2xl md:text-3xl font-extrabold text-white">About Shahid Bashir</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-slate-950/60 border border-slate-900 rounded-2xl p-6 md:p-8 backdrop-blur-md">
+                <!-- Profile Image / Avatar -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-36 h-36 rounded-full border-2 border-[#00FFCC] p-1 shadow-[0_0_25px_rgba(0,255,204,0.3)] mb-4">
+                        <img src="https://github.com/rahildarc.png" alt="Shahid Bashir" class="object-cover w-full h-full rounded-full">
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Shahid Bashir</h3>
+                    <p class="text-xs text-[#00FFCC] font-mono mt-1">@rahildarc</p>
+                </div>
+
+                <!-- Biography & Key Specs -->
+                <div class="md:col-span-2 space-y-4 text-slate-300 text-sm leading-relaxed">
+                    <p>
+                        I am a full-stack developer and network security specialist passionate about engineering secure, high-performance web applications and hardware tracking ecosystems.
+                    </p>
+                    
+                    <!-- Quick Badges Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                            <span class="text-lg">🛡️</span>
+                            <div>
+                                <p class="text-xs text-slate-400">Certifications & Security</p>
+                                <p class="text-xs font-bold text-[#00FFCC]">Certified Ethical Hacker (CEH) | NetSec</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                            <span class="text-lg">💻</span>
+                            <div>
+                                <p class="text-xs text-slate-400">Full-Stack Core</p>
+                                <p class="text-xs font-bold text-[#00FFCC]">PERN Stack & Python Dev</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                            <span class="text-lg">🎓</span>
+                            <div>
+                                <p class="text-xs text-slate-400">Academic Institutions</p>
+                                <p class="text-xs font-bold text-[#00FFCC]">NIET | Kashmir Univ | PTU</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-lg flex items-center space-x-3">
+                            <span class="text-lg">🧠</span>
+                            <div>
+                                <p class="text-xs text-slate-400">Specialized Focus</p>
+                                <p class="text-xs font-bold text-[#00FFCC]">Machine Learning & IoT Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FEATURED PROJECTS GRID -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-16 w-full">
             <div class="border-b border-slate-900 pb-4 mb-10 flex justify-between items-end">
                 <div>
                     <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Showcase</h2>
@@ -108,6 +181,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project Card 1: SMS Spam Detection -->
                 <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
                     <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Machine Learning</span>
                     <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">SMS Spam Detection</h3>
@@ -119,6 +193,7 @@
                     </a>
                 </div>
 
+                <!-- Project Card 2: Heart Disease Prediction -->
                 <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
                     <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Deep Learning (ANN)</span>
                     <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Heart Disease Prediction</h3>
@@ -130,6 +205,7 @@
                     </a>
                 </div>
 
+                <!-- Project Card 3: Cold Store System -->
                 <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
                     <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Full-Stack System</span>
                     <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Cold Store Management</h3>
@@ -141,6 +217,7 @@
                     </a>
                 </div>
 
+                <!-- Project Card 4: Abraq Gate Entry -->
                 <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
                     <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Smart Logging / IoT</span>
                     <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Abraq Gate Entry System</h3>
@@ -154,26 +231,40 @@
             </div>
         </section>
 
+        <!-- 5. EXPANDED TREE-STRUCTURE TECHNICAL TOOLBOX -->
         <section id="tools" class="max-w-6xl mx-auto px-6 py-12 w-full">
             <div class="border-b border-slate-900 pb-4 mb-8">
                 <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Capabilities</h2>
-                <p class="text-2xl md:text-3xl font-extrabold text-white">System Architecture & Toolbox</p>
+                <p class="text-2xl md:text-3xl font-extrabold text-white">System Architecture & Kali Security Stack</p>
             </div>
 
-            <div class="bg-slate-950/70 border border-slate-900 rounded-2xl p-6 md:p-8 font-mono text-sm leading-relaxed backdrop-blur-md">
+            <!-- Sleek Interactive Tree Component -->
+            <div class="bg-slate-950/70 border border-slate-900 rounded-2xl p-6 md:p-8 font-mono text-sm leading-relaxed backdrop-blur-md overflow-x-auto">
 <span class="text-[#00FFCC]"># executing tree mapping profile...</span>
 <pre class="text-[#00FFCC] mt-2">
 🛠️ Shahid-Stack-and-Tools
+├── 🛡️ <span class="text-white font-bold">Network Security & Penetration Testing (Kali Linux Stack)</span>
+│   ├── 🔑 <span class="text-slate-300">Password Cracking & Hashing</span>
+│   │   ├── John the Ripper
+│   │   ├── Hashcat
+│   │   └── Hydra
+│   ├── 📡 <span class="text-slate-300">Wireless & Wi-Fi Auditing</span>
+│   │   ├── Aircrack-ng Suite
+│   │   ├── Wifite
+│   │   ├── Reaver / Pixiewps
+│   │   └── Kismet
+│   ├── 🔍 <span class="text-slate-300">Reconnaissance & Vulnerability Assessment</span>
+│   │   ├── Nmap / Masscan
+│   │   ├── Burp Suite Professional
+│   │   ├── Wireshark & TShark
+│   │   ├── Metasploit Framework
+│   │   ├── SQLmap
+│   │   └── Recon-ng / Maltego
 ├── 💻 <span class="text-white font-bold">Full-Stack Development (PERN Stack)</span>
 │   ├── VS Code
 │   ├── Postman & Insomnia
 │   ├── pgAdmin & DBeaver
 │   └── Docker
-├── 🛡️ <span class="text-white font-bold">Network Security & Bug Hunting (HackerOne)</span>
-│   ├── Burp Suite
-│   ├── Nmap
-│   ├── Wireshark
-│   └── Metasploit
 ├── 🧠 <span class="text-white font-bold">Machine Learning & Data Science</span>
 │   ├── Jupyter Notebook & Google Colab
 │   └── TensorBoard
@@ -184,6 +275,7 @@
             </div>
         </section>
 
+        <!-- 6. CONTACT & FOOTER -->
         <footer class="w-full py-8 border-t border-slate-900 bg-slate-950/40 backdrop-blur-md mt-16">
             <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <p class="text-xs text-slate-500">
@@ -199,6 +291,7 @@
 
     </div>
 
+    <!-- tsParticles Library Integration -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
     <script>
         // Initializing the continuously moving particle web
