@@ -6,25 +6,16 @@
     <title>Shahid Bashir | Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- D3.js & TopoJSON for Accurate World Map Globe Rendering -->
+    <!-- D3.js & TopoJSON libraries for Globe rendering -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
     <style>
-        /* Custom neon glowing blur blobs */
-        .glow-blob {
-            filter: blur(120px);
-            opacity: 0.25;
-            pointer-events: none;
-        }
-
-        /* Large revive light aura behind Hero */
         .hero-glow-revive {
             filter: blur(140px);
             opacity: 0.35;
             pointer-events: none;
         }
 
-        /* Continuous pulse animation for glowing accents */
         @keyframes aura-pulse {
             0%, 100% { transform: scale(1); opacity: 0.35; }
             50% { transform: scale(1.15); opacity: 0.55; }
@@ -34,12 +25,10 @@
             animation: aura-pulse 7s ease-in-out infinite;
         }
 
-        /* Smooth Text Transition for Rotating Thoughts */
         .fade-thought {
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -57,303 +46,192 @@
 </head>
 <body class="bg-[#080c14] text-slate-100 font-sans overflow-x-hidden min-h-screen relative selection:bg-[#00FFCC] selection:text-slate-900">
 
-    <!-- Interactive Particle Background Canvas -->
-    <div id="tsparticles" class="absolute inset-0 z-0"></div>
+    <!-- 1. NAVIGATION HEADER WITH LIVE DATE & TIME -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center backdrop-blur-sm bg-[#080c14]/50 rounded-2xl sm:rounded-full mt-4 border border-slate-900/80 gap-4 sm:gap-0">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full border-2 border-[#00FFCC] p-0.5 overflow-hidden shadow-[0_0_15px_rgba(0,255,204,0.3)]">
+                <img src="https://github.com/rahildarc.png" alt="Shahid Bashir" class="object-cover w-full h-full rounded-full">
+            </div>
+            <span class="font-bold text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#00FFCC]">
+                Shahid Bashir
+            </span>
+        </div>
 
-    <!-- Background Radial Cyber-Glow Blobs -->
-    <div class="absolute top-1/2 right-10 w-80 h-80 rounded-full bg-[#10b981] glow-blob"></div>
-    <div class="absolute bottom-20 left-1/3 w-96 h-96 rounded-full bg-[#00FFCC] glow-blob"></div>
+        <nav class="flex space-x-8 text-sm font-medium items-center">
+            <a href="#" class="text-[#00FFCC] hover:text-white transition-colors">Home</a>
+            <a href="#projects" class="text-slate-400 hover:text-[#00FFCC] transition-colors">Projects</a>
+            <a href="#tools" class="text-slate-400 hover:text-[#00FFCC] transition-colors">Stack</a>
+        </nav>
 
-    <!-- CONTENT WRAPPER -->
-    <div class="relative z-10 flex flex-col justify-between min-h-screen">
+        <!-- LIVE CLOCK WIDGET -->
+        <div class="flex items-center space-x-2 bg-slate-950/80 border border-[#00FFCC]/30 rounded-full px-4 py-1.5 shadow-[0_0_10px_rgba(0,255,204,0.1)]">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FFCC] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00FFCC]"></span>
+            </span>
+            <span id="liveClock" class="font-mono text-xs text-[#00FFCC] font-bold tracking-wider">
+                Loading...
+            </span>
+        </div>
+    </header>
 
-        <!-- 1. NAVIGATION HEADER -->
-        <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center backdrop-blur-sm bg-[#080c14]/30 rounded-full mt-4 border border-slate-900/50">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full border-2 border-[#00FFCC] p-0.5 overflow-hidden shadow-[0_0_15px_rgba(0,255,204,0.3)]">
-                    <img src="https://github.com/rahildarc.png" alt="Shahid Bashir" class="object-cover w-full h-full rounded-full">
-                </div>
-                <span class="font-bold text-lg tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#00FFCC]">
-                    Shahid Bashir
+    <!-- 2. HERO SECTION -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 pb-20 text-center flex flex-col items-center relative">
+        
+        <!-- Glowing Light Aura Background -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#00FFCC] via-[#10b981] to-cyan-500 hero-glow-revive animate-aura-pulse"></div>
+
+        <!-- Contracts Badge -->
+        <div class="relative group cursor-default mb-8">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00FFCC] via-[#10b981] to-[#00FFCC] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+            
+            <div class="relative inline-flex items-center space-x-3 bg-[#080c14]/90 border border-[#00FFCC]/80 rounded-full px-5 py-2 backdrop-blur-xl shadow-[0_0_25px_rgba(0,255,204,0.25)]">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FFCC] opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00FFCC] shadow-[0_0_10px_#00FFCC]"></span>
+                </span>
+                <span class="text-xs sm:text-sm font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#00FFCC] uppercase">
+                    Available for contracts & security audits
                 </span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#" class="text-[#00FFCC] hover:text-white transition-colors">Home</a>
-                <a href="#projects" class="text-slate-400 hover:text-[#00FFCC] transition-colors">Projects</a>
-                <a href="#tools" class="text-slate-400 hover:text-[#00FFCC] transition-colors">Stack</a>
-            </nav>
-        </header>
+        </div>
 
-        <!-- 2. HERO SECTION -->
-        <section class="max-w-5xl mx-auto px-6 pt-20 pb-20 text-center flex flex-col items-center relative">
+        <!-- Headline -->
+        <h1 class="relative z-10 text-4xl sm:text-6xl font-black tracking-tight leading-tight max-w-4xl">
+            Exploring the intersection of <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_20px_rgba(0,255,204,0.3)]">code</span> 
+            and 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#00FFCC]">creativity</span>
+        </h1>
+
+        <p class="relative z-10 text-slate-300 mt-6 text-base sm:text-lg leading-relaxed max-w-2xl">
+            PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
+        </p>
+
+        <!-- Social Connectivity Badges (With High Contrast Portfolio Badge) -->
+        <div class="relative z-10 flex flex-wrap justify-center gap-3 mt-8">
+            <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
+                <img src="https://img.shields.io/badge/Portfolio-0f172a?style=for-the-badge&logo=react&logoColor=00FFCC&labelColor=0f172a&color=00FFCC" alt="Portfolio" />
+            </a>
+            <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="hover:scale-105 transition-transform">
+                <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
+                <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+            </a>
+            <a href="https://hackerone.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
+                <img src="https://img.shields.io/badge/HackerOne-000000?style=for-the-badge&logo=hackerone&logoColor=red" alt="HackerOne" />
+            </a>
+        </div>
+
+        <!-- Primary Action Buttons -->
+        <div class="relative z-10 mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-extrabold px-8 py-3.5 rounded-full text-center hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(0,255,204,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
+                View My Projects
+            </a>
+            <a href="mailto:acejoker967@gmail.com" class="bg-slate-950/60 border border-slate-800 text-white font-bold px-8 py-3.5 rounded-full text-center hover:bg-slate-800/80 hover:border-[#00FFCC] transition-all duration-300 backdrop-blur-sm">
+                Let's Connect 🤝
+            </a>
+        </div>
+
+        <!-- DIRECT EMAIL DISPLAY BELOW BUTTONS -->
+        <div class="relative z-10 mt-6 inline-flex items-center space-x-2 bg-slate-950/70 border border-[#00FFCC]/30 rounded-full px-5 py-2 backdrop-blur-md">
+            <span class="text-slate-400 text-xs uppercase tracking-wider font-semibold">Direct Email:</span>
+            <a href="mailto:acejoker967@gmail.com" class="text-[#00FFCC] font-mono text-sm font-bold hover:underline hover:text-white transition-colors">
+                acejoker967@gmail.com
+            </a>
+        </div>
+
+    </section>
+
+    <!-- 3. TECHNICAL TOOLBOX & GLOBE SIDEBAR -->
+    <section id="tools" class="max-w-6xl mx-auto px-6 py-12 w-full">
+        <div class="border-b border-slate-900 pb-4 mb-8">
+            <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Capabilities</h2>
+            <p class="text-2xl md:text-3xl font-extrabold text-white">System Architecture & Security Stack</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             
-            <!-- REVIVED LARGE GLOWING LIGHT AURA -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#00FFCC] via-[#10b981] to-cyan-500 hero-glow-revive animate-aura-pulse"></div>
-
-            <!-- GLOWING CONTRACTS BADGE -->
-            <div class="relative group cursor-default mb-8">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00FFCC] via-[#10b981] to-[#00FFCC] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 group-hover:duration-200 animate-pulse"></div>
+            <!-- STACK TREE VIEW -->
+            <div class="lg:col-span-2 bg-slate-950/80 border border-slate-900 rounded-2xl p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-slate-300 backdrop-blur-md shadow-lg">
+                <div class="text-[#00FFCC] mb-3 font-bold"># executing tree mapping profile...</div>
                 
-                <div class="relative inline-flex items-center space-x-3 bg-[#080c14]/90 border border-[#00FFCC]/80 rounded-full px-5 py-2 backdrop-blur-xl shadow-[0_0_25px_rgba(0,255,204,0.25)]">
-                    <span class="relative flex h-3 w-3">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FFCC] opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00FFCC] shadow-[0_0_10px_#00FFCC]"></span>
-                    </span>
-                    <span class="text-xs sm:text-sm font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#00FFCC] uppercase">
-                        Available for contracts & security audits
-                    </span>
-                </div>
-            </div>
-
-            <!-- Headline -->
-            <h1 class="relative z-10 text-4xl sm:text-6xl font-black tracking-tight leading-tight max-w-4xl">
-                Exploring the intersection of <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFCC] to-[#10b981] drop-shadow-[0_0_20px_rgba(0,255,204,0.3)]">code</span> 
-                and 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#00FFCC]">creativity</span>
-            </h1>
-
-            <p class="relative z-10 text-slate-300 mt-6 text-base sm:text-lg leading-relaxed max-w-2xl">
-                PERN Stack Developer & Security Specialist constructing secure, intelligent, and highly scalable full-stack ecosystems.
-            </p>
-
-            <!-- Social Connectivity Badges -->
-            <div class="relative z-10 flex flex-wrap justify-center gap-3 mt-8">
-                <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/Portfolio-00FFCC?style=for-the-badge&logo=react&logoColor=black" alt="Portfolio" />
-                </a>
-                <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-                </a>
-                <a href="https://github.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-                </a>
-                <a href="https://hackerone.com/rahildarc" target="_blank" class="hover:scale-105 transition-transform">
-                    <img src="https://img.shields.io/badge/HackerOne-000000?style=for-the-badge&logo=hackerone&logoColor=red" alt="HackerOne" />
-                </a>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="relative z-10 mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="#projects" class="bg-[#00FFCC] text-slate-950 font-bold px-8 py-3.5 rounded-full text-center hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(0,255,204,0.5)] transition-all duration-300 transform hover:-translate-y-0.5">
-                    View My Projects
-                </a>
-                <a href="mailto:acejoker967@gmail.com" class="bg-slate-950/60 border border-slate-800 text-white font-bold px-8 py-3.5 rounded-full text-center hover:bg-slate-800/80 hover:border-[#00FFCC] transition-all duration-300 backdrop-blur-sm">
-                    Let's Connect 🤝
-                </a>
-            </div>
-        </section>
-
-        <!-- 3. FEATURED PROJECTS GRID -->
-        <section id="projects" class="max-w-6xl mx-auto px-6 py-16 w-full">
-            <div class="border-b border-slate-900 pb-4 mb-10 flex justify-between items-end">
-                <div>
-                    <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Showcase</h2>
-                    <p class="text-2xl md:text-3xl font-extrabold text-white">Featured Engineering Projects</p>
-                </div>
-                <a href="https://github.com/rahildarc" target="_blank" class="text-slate-400 hover:text-[#00FFCC] text-sm font-medium transition-colors">See all →</a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
-                    <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Machine Learning</span>
-                    <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">SMS Spam Detection</h3>
-                    <p class="text-slate-400 mt-3 text-sm leading-relaxed">
-                        Uses advanced artificial intelligence and classification architectures to identify, evaluate, and filter out malicious attack payloads and spam texts.
-                    </p>
-                    <a href="https://github.com/rahildarc/sms-spam-detection" target="_blank" class="inline-flex items-center text-xs font-bold text-white mt-6 hover:text-[#00FFCC] transition-colors">
-                        View Codebase <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
-                    <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Deep Learning (ANN)</span>
-                    <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Heart Disease Prediction</h3>
-                    <p class="text-slate-400 mt-3 text-sm leading-relaxed">
-                        An Artificial Neural Network model structured to evaluate complex clinical metrics to predict cardiovascular anomalies and disease patterns early.
-                    </p>
-                    <a href="https://github.com/rahildarc/Heart-Disease-Prediction-using-ANN" target="_blank" class="inline-flex items-center text-xs font-bold text-white mt-6 hover:text-[#00FFCC] transition-colors">
-                        View Codebase <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
-                    <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Full-Stack System</span>
-                    <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Cold Store Management</h3>
-                    <p class="text-slate-400 mt-3 text-sm leading-relaxed">
-                        A clean, real-time tracking interface engineered to keep tabs on environmental values, inventory levels, and logistics records in a storage facility.
-                    </p>
-                    <a href="https://github.com/rahildarc/Cold-Store-Management-System" target="_blank" class="inline-flex items-center text-xs font-bold text-white mt-6 hover:text-[#00FFCC] transition-colors">
-                        View Codebase <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <div class="bg-slate-950/50 border border-slate-900 rounded-2xl p-6 backdrop-blur-md hover:border-[#00FFCC]/50 transition-all duration-300 group">
-                    <span class="text-xs text-[#00FFCC] font-semibold uppercase tracking-wider">Smart Logging / IoT</span>
-                    <h3 class="text-xl font-bold mt-1 group-hover:text-[#00FFCC] transition-colors">Abraq Gate Entry System</h3>
-                    <p class="text-slate-400 mt-3 text-sm leading-relaxed">
-                        A mobile-integrated web portal designed to record cold-storage gate entry traffic and seamlessly write records to synced databases.
-                    </p>
-                    <a href="https://github.com/rahildarc/abraq-gate-entry" target="_blank" class="inline-flex items-center text-xs font-bold text-white mt-6 hover:text-[#00FFCC] transition-colors">
-                        View Codebase <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. TECHNICAL TOOLBOX & KALI SECURITY STACK -->
-        <section id="tools" class="max-w-6xl mx-auto px-6 py-12 w-full">
-            <div class="border-b border-slate-900 pb-4 mb-8">
-                <h2 class="text-xs uppercase tracking-widest text-[#00FFCC] font-bold">Capabilities</h2>
-                <p class="text-2xl md:text-3xl font-extrabold text-white">System Architecture & Security Stack</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <div class="text-slate-100 font-bold mb-2">📌 Shahid-Stack-and-Tools</div>
                 
-                <!-- Tree Architecture Code View -->
-                <div class="lg:col-span-2 bg-slate-950/70 border border-slate-900 rounded-2xl p-6 md:p-8 font-mono text-sm leading-relaxed backdrop-blur-md overflow-x-auto">
-<span class="text-[#00FFCC]"># executing tree mapping profile...</span>
-<pre class="text-[#00FFCC] mt-2">
-🛠️ Shahid-Stack-and-Tools
-├── 🛡️ <span class="text-white font-bold">Network Security & Penetration Testing (Kali Linux Stack)</span>
-│   ├── 🎯 <span class="text-slate-300">Exploitation & Penetration Testing</span>
-│   │   ├── Metasploit Framework
-│   │   └── SQLmap
-│   ├── 🔑 <span class="text-slate-300">Password Cracking & Hashing</span>
-│   │   ├── John the Ripper
-│   │   ├── Hashcat
-│   │   └── Hydra
-│   ├── 📡 <span class="text-slate-300">Wireless & Wi-Fi Auditing</span>
-│   │   ├── Aircrack-ng Suite
-│   │   ├── Wifite
-│   │   ├── Reaver / Pixiewps
-│   │   └── Kismet
-│   ├── 🔍 <span class="text-slate-300">Reconnaissance & Vulnerability Assessment</span>
-│   │   ├── Nmap / Masscan
-│   │   ├── Burp Suite Professional
-│   │   ├── Wireshark & TShark
-│   │   └── Recon-ng / Maltego
-├── 💻 <span class="text-white font-bold">Full-Stack Development (PERN Stack)</span>
-│   ├── PostgreSQL & pgAdmin / DBeaver
-│   ├── Express.js & Node.js
-│   ├── React.js & Tailwind CSS
-│   ├── Python / Flask
-│   ├── VS Code & Docker
-│   └── Postman & Insomnia
-├── 🧠 <span class="text-white font-bold">Machine Learning & Data Science</span>
-│   ├── Jupyter Notebook & Google Colab
-│   ├── TensorFlow / Keras & PyTorch
-│   └── TensorBoard
-└── 📟 <span class="text-white font-bold">IoT & Smart Systems (RFID/GPS)</span>
-    ├── Arduino IDE & PlatformIO
-    └── Fritzing & EasyEDA
-</pre>
-                </div>
-
-                <!-- REDESIGNED HIRING & GLOBAL REMOTE WORK SIDEBAR -->
-                <div class="bg-slate-950/80 border border-[#00FFCC]/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group shadow-[0_0_25px_rgba(0,255,204,0.08)]">
-                    
-                    <!-- Top Highlighted Hiring Pitch & Prominent Quote -->
-                    <div id="thoughtBox" class="relative z-10 w-full flex flex-col justify-center items-center fade-thought">
-                        <span class="px-3 py-1 bg-[#00FFCC]/10 text-[#00FFCC] text-xs font-mono font-bold tracking-widest rounded-full border border-[#00FFCC]/30 uppercase mb-3">
-                            AVAILABLE FOR REMOTE HIRING
-                        </span>
-                        <h3 id="thoughtCategory" class="text-[#00FFCC] font-bold text-sm uppercase tracking-wider mb-2">
-                            GLOBAL PERSPECTIVE
-                        </h3>
-                        <!-- INCREASED QUOTE SIZE -->
-                        <p id="thoughtContent" class="text-white text-base sm:text-lg font-bold leading-snug drop-shadow-md">
-                            "Securing digital boundaries & building scalable web systems worldwide."
-                        </p>
+                <div class="pl-4 border-l border-slate-800 space-y-2">
+                    <div>
+                        <span class="text-red-400 font-bold">🛡️ Network Security & Penetration Testing (Kali Linux Stack)</span>
+                        <div class="pl-4 border-l border-slate-800 mt-1 space-y-1 text-slate-400">
+                            <div>🎯 Exploitation: <span class="text-emerald-400">Metasploit, SQLmap</span></div>
+                            <div>🔑 Password Cracking: <span class="text-emerald-400">John the Ripper, Hashcat, Hydra</span></div>
+                            <div>📡 Wireless Auditing: <span class="text-emerald-400">Aircrack-ng, Wifite, Reaver, Kismet</span></div>
+                            <div>🔍 Recon & Vuln Scan: <span class="text-emerald-400">Nmap, Burp Suite Pro, Wireshark, Recon-ng</span></div>
+                        </div>
                     </div>
 
-                    <!-- Clean Globe Container with Country Labels -->
-                    <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-[#00FFCC]/60 shadow-[0_0_25px_rgba(0,255,204,0.25),inset_0_0_20px_rgba(0,255,204,0.15)] bg-[#050811] overflow-hidden flex items-center justify-center my-6 relative z-10">
-                        <canvas id="globeCanvas" class="w-full h-full cursor-grab"></canvas>
+                    <div class="pt-2">
+                        <span class="text-cyan-400 font-bold">💻 Full-Stack Development (PERN Stack)</span>
+                        <div class="pl-4 border-l border-slate-800 mt-1 space-y-1 text-slate-400">
+                            <div>💾 Databases: <span class="text-emerald-400">PostgreSQL, pgAdmin, DBeaver</span></div>
+                            <div>⚡ Backend & Runtime: <span class="text-emerald-400">Express.js, Node.js, Python / Flask</span></div>
+                            <div>🎨 Frontend UI: <span class="text-emerald-400">React.js, Tailwind CSS</span></div>
+                            <div>🧰 Dev Tools: <span class="text-emerald-400">Docker, VS Code, Postman, Insomnia</span></div>
+                        </div>
                     </div>
-
-                    <!-- Direct Hire Action Button -->
-                    <a href="mailto:acejoker967@gmail.com" class="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#00FFCC] to-emerald-400 hover:from-emerald-400 hover:to-[#00FFCC] text-slate-950 font-extrabold rounded-xl py-3 px-4 shadow-[0_0_20px_rgba(0,255,204,0.3)] transition-all transform hover:scale-[1.02] relative z-10">
-                        <span class="relative flex h-2.5 w-2.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950"></span>
-                        </span>
-                        <span class="text-xs uppercase tracking-wider">Hire Me for Remote Work</span>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 5. FOOTER -->
-        <footer class="w-full py-8 border-t border-slate-900 bg-slate-950/40 backdrop-blur-md mt-16">
-            <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p class="text-xs text-slate-500">
-                    &copy; 2026 Shahid Bashir. Designed for Secure Innovation.
-                </p>
-                <div class="flex space-x-6 text-sm">
-                    <a href="https://shahid-bashir-data-0vqny8d.gamma.site/" target="_blank" class="text-slate-400 hover:text-[#00FFCC] transition-colors">Portfolio</a>
-                    <a href="https://www.linkedin.com/in/shahid-bashir-dar/" target="_blank" class="text-slate-400 hover:text-[#00FFCC] transition-colors">LinkedIn</a>
-                    <a href="https://github.com/rahildarc" target="_blank" class="text-slate-400 hover:text-[#00FFCC] transition-colors">GitHub</a>
-                    <a href="https://hackerone.com/rahildarc" target="_blank" class="text-slate-400 hover:text-[#00FFCC] transition-colors">HackerOne</a>
                 </div>
             </div>
-        </footer>
 
-    </div>
+            <!-- GLOBE & REMOTE HIRE SIDEBAR -->
+            <div class="bg-slate-950/80 border border-[#00FFCC]/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center backdrop-blur-md relative overflow-hidden group shadow-[0_0_25px_rgba(0,255,204,0.08)]">
+                
+                <div class="relative z-10 w-full flex flex-col justify-center items-center min-h-[110px]">
+                    <span class="px-3 py-1 bg-[#00FFCC]/10 text-[#00FFCC] text-[11px] font-mono font-bold tracking-widest rounded-full border border-[#00FFCC]/30 uppercase mb-4">
+                        AVAILABLE FOR REMOTE HIRING
+                    </span>
+                    <p class="text-white text-base font-bold leading-snug drop-shadow-md">
+                        "Zero-trust architecture with resilient, high-speed performance."
+                    </p>
+                </div>
 
-    <!-- tsParticles Library Integration -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+                <!-- Interactive 3D Canvas Globe -->
+                <div class="relative w-56 h-56 rounded-full border border-[#00FFCC]/60 shadow-[0_0_25px_rgba(0,255,204,0.25),inset_0_0_20px_rgba(0,255,204,0.15)] bg-[#050811] overflow-hidden flex items-center justify-center my-6 z-10">
+                    <canvas id="globeCanvas" class="w-full h-full cursor-grab"></canvas>
+                </div>
+
+                <a href="mailto:acejoker967@gmail.com" class="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#00FFCC] to-emerald-400 hover:from-emerald-400 hover:to-[#00FFCC] text-slate-950 font-extrabold rounded-xl py-3 px-4 shadow-[0_0_20px_rgba(0,255,204,0.3)] transition-all relative z-10">
+                    <span class="text-xs uppercase tracking-wider">Hire Me for Remote Work</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SCRIPTS -->
     <script>
-        // Particle background configuration
-        tsParticles.load("tsparticles", {
-            fpsLimit: 120,
-            particles: {
-                number: { value: 65, density: { enable: true, area: 900 } },
-                color: { value: "#00FFCC" },
-                opacity: { value: 0.45, random: true },
-                size: { value: { min: 1, max: 3 } },
-                links: { enable: true, distance: 140, color: "#00FFCC", opacity: 0.22, width: 1 },
-                move: { enable: true, speed: 1.1, direction: "none", outModes: { default: "out" } }
-            },
-            interactivity: {
-                events: {
-                    onHover: { enable: true, mode: "grab" },
-                    onClick: { enable: true, mode: "push" }
-                },
-                modes: { grab: { distance: 160, links: { opacity: 0.6 } }, push: { quantity: 3 } }
-            },
-            detectRetina: true
-        });
+        // 1. ACCURATE LIVE TIME AND DATE FUNCTION
+        function updateLiveClock() {
+            const clockElement = document.getElementById('liveClock');
+            if (!clockElement) return;
 
-        // ROTATING THOUGHT STREAM SCRIPT (HIRING & COLLABORATION ORIENTED)
-        const thoughts = [
-            { category: "GLOBAL PERSPECTIVE", text: '"Securing digital boundaries & building scalable web systems worldwide."' },
-            { category: "REMOTE COLLABORATION", text: '"Seamless async communication & agile full-stack development."' },
-            { category: "SECURITY FIRST", text: '"Zero-trust architecture with resilient, high-speed performance."' },
-            { category: "CREATIVE ENGINEERING", text: '"Transforming complex security & data requirements into clean code."' }
-        ];
+            const now = new Date();
+            
+            // Format Options
+            const dateOptions = { weekday: 'short', month: 'short', day: '2-digit', year: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
 
-        let thoughtIndex = 0;
-        const thoughtBox = document.getElementById('thoughtBox');
-        const thoughtCategory = document.getElementById('thoughtCategory');
-        const thoughtContent = document.getElementById('thoughtContent');
+            const formattedDate = now.toLocaleDateString('en-US', dateOptions);
+            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
 
-        setInterval(() => {
-            thoughtBox.style.opacity = '0';
-            thoughtBox.style.transform = 'translateY(-4px)';
+            clockElement.textContent = `${formattedDate} | ${formattedTime}`;
+        }
 
-            setTimeout(() => {
-                thoughtIndex = (thoughtIndex + 1) % thoughts.length;
-                thoughtCategory.textContent = thoughts[thoughtIndex].category;
-                thoughtContent.textContent = thoughts[thoughtIndex].text;
+        // Initialize clock and update every 1 second
+        updateLiveClock();
+        setInterval(updateLiveClock, 1000);
 
-                thoughtBox.style.opacity = '1';
-                thoughtBox.style.transform = 'translateY(0)';
-            }, 500);
-        }, 3500);
 
-        // ADVANCED GLOBE WITH REAL-TIME COUNTRY NAMES & ISO CODES
+        // 2. 3D GLOBE RENDER SCRIPT WITH CONTINENT DATA
         const canvas = document.getElementById('globeCanvas');
         const context = canvas.getContext('2d');
         const width = 224;
@@ -364,7 +242,7 @@
         context.scale(window.devicePixelRatio, window.devicePixelRatio);
 
         const projection = d3.geoOrthographic()
-            .scale(95)
+            .scale(105)
             .translate([width / 2, height / 2])
             .clipAngle(90);
 
@@ -372,10 +250,9 @@
         const graticule = d3.geoGraticule10();
 
         let landFeatures = null;
-        let countriesWithNames = [];
-        let rotation = [0, -20];
+        let countriesList = [];
+        let rotation = [0, -25];
 
-        // ISO Numeric to Name & Code Dictionary
         const countryMeta = {
             "840": { name: "USA", code: "US" },
             "124": { name: "Canada", code: "CA" },
@@ -385,87 +262,78 @@
             "356": { name: "India", code: "IN" },
             "036": { name: "Australia", code: "AU" },
             "392": { name: "Japan", code: "JP" },
-            "156": { name: "China", code: "CN" },
             "076": { name: "Brazil", code: "BR" },
             "710": { name: "South Africa", code: "ZA" },
             "702": { name: "Singapore", code: "SG" },
-            "784": { name: "UAE", code: "AE" },
-            "643": { name: "Russia", code: "RU" },
-            "528": { name: "Netherlands", code: "NL" },
-            "752": { name: "Sweden", code: "SE" },
-            "040": { name: "Austria", code: "AT" }
+            "784": { name: "UAE", code: "AE" }
         };
 
-        // Fetch official TopoJSON world map data
-        fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-            .then(response => response.json())
+        // Fetch TopoJSON map data
+        d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
             .then(world => {
                 landFeatures = topojson.feature(world, world.objects.countries);
-                countriesWithNames = landFeatures.features;
-                render();
-            });
+                countriesList = landFeatures.features;
+                d3.timer(animate);
+            })
+            .catch(err => console.error("Error loading globe map data:", err));
 
-        function render() {
+        function animate(elapsed) {
+            rotation[0] = elapsed * 0.035;
+            projection.rotate(rotation);
+            renderGlobe();
+        }
+
+        function renderGlobe() {
             context.clearRect(0, 0, width, height);
 
-            // 1. Draw Globe Graticule Lines
+            // Graticule grid
             context.beginPath();
             path(graticule);
             context.lineWidth = 0.5;
-            context.strokeStyle = 'rgba(0, 255, 204, 0.12)';
+            context.strokeStyle = 'rgba(0, 255, 204, 0.08)';
             context.stroke();
 
-            // 2. Draw Country Landmasses
+            // Landmasses
             if (landFeatures) {
                 context.beginPath();
                 path(landFeatures);
-                context.fillStyle = 'rgba(0, 255, 204, 0.2)';
+                context.fillStyle = 'rgba(0, 255, 204, 0.16)';
                 context.fill();
                 context.lineWidth = 0.8;
                 context.strokeStyle = '#00FFCC';
                 context.shadowColor = '#00FFCC';
                 context.shadowBlur = 4;
                 context.stroke();
-                context.shadowBlur = 0; // reset shadow
+                context.shadowBlur = 0;
 
-                // 3. Render Country Names and ISO Codes over Visible Centroids
+                // Labels
                 context.font = 'bold 8px monospace';
                 context.textAlign = 'center';
 
-                countriesWithNames.forEach(feature => {
+                countriesList.forEach(feature => {
                     const id = String(feature.id).padStart(3, '0');
                     const meta = countryMeta[id];
 
                     if (meta) {
                         const centroid = d3.geoCentroid(feature);
-                        const projected = projection(centroid);
+                        const coord = projection(centroid);
 
-                        // Verify if country point is on the visible front hemisphere
-                        if (projected && !isNaN(projected[0])) {
+                        if (coord && !isNaN(coord[0])) {
                             const distance = d3.geoDistance(centroid, [-rotation[0], -rotation[1]]);
-                            if (distance < 1.4) {
-                                // Draw country point marker
+                            if (distance < 1.35) {
                                 context.fillStyle = '#ffffff';
                                 context.beginPath();
-                                context.arc(projected[0], projected[1], 1.5, 0, 2 * Math.PI);
+                                context.arc(coord[0], coord[1], 1.5, 0, 2 * Math.PI);
                                 context.fill();
 
-                                // Draw Name & Code Label
                                 context.fillStyle = '#00FFCC';
-                                context.fillText(`${meta.name} [${meta.code}]`, projected[0], projected[1] - 4);
+                                context.fillText(`${meta.name} [${meta.code}]`, coord[0], coord[1] - 4);
                             }
                         }
                     }
                 });
             }
         }
-
-        // Rotation Loop
-        d3.timer(() => {
-            rotation[0] += 0.4;
-            projection.rotate(rotation);
-            render();
-        });
     </script>
 </body>
 </html>
